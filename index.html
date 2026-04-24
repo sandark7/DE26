@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Антипаттерны фронтенда в полевых интерфейсах</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" hcontent="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="slides.css">
+</head>
+
+<body class="shower list">
+  <header class="caption">
+    <h1>Антипаттерны фронтенда в полевых интерфейсах</h1>
+  </header>
+<section id="cover" class="slide label-header clear bgt">
+  <h2 class="shout shrink">Антипаттерны фронтенда<br>в полевых интерфейсах</h2>
+  <p class="end-link" style="left: 5%; bottom: 8%">Андрей Смирнов <a href="https://t.me/itsmirnov" target="_blank">@itsmirnov</a></p>
+</section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Кто я?</h2>
+    <img src="pictures/rebranding.png" class="cover h bordered">
+    <object data="pictures/logo-magnit.svg" type="image/svg+xml" class="next"
+      style="position: absolute;top: 120px;left: 635px;width: 90px; height: 90px; background-color: black;"></object>
+    <img src="pictures/cto_logo.png" class="logo next" style="margin-top: 100px;">
+    <img src="pictures/sw_ava_300.png" class="logo next" style="margin-top: 205px;">
+    <img src="pictures/colored.png" class="logo next" style="margin-top: 310px;">
+  </section>
+  <section id="" class="slide label-header rbn bg bgt">
+    <h2>Дисклеймер</h2><br>
+    <img src="pictures/website-disclaimer.png" width="30%" style="margin-left: 35%">
+    <ul class="nosign">
+      <li>🙊 Моё личное мнение</li>
+      <li>🤷🏻 Основанное на собственном опыте</li>
+    </ul>
+  </section>
+
+  <section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">Откуда вообще такая тема возникла?</h2>
+  </section>
+
+
+<section id="" class="slide label-header rbn bgi">
+    <h2>Когда мы слышим слово фронтенд...</h2>
+    <img src="pictures/writing.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>или хотя бы</h2>
+    <img src="pictures/double.jpeg" class="cover h bordered">
+  </section>
+
+  <section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">Управляю разработкой в департаменте Качества</h2>
+  </section>
+
+  <section id="" class="slide label-header rbn bgi">
+    <img src="pictures/stories.jpeg" class="cover h bordered">
+  </section>
+
+  <section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">Однажды приехал в распределительный центр...</h2>
+  </section>
+
+  <section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">и увидел, кто и как взаимодействует с нашими интерфейсами</h2>
+  </section>
+
+<section id="" class="slide label-header rbn bgi">
+    <h2>Получил задачу всё переделать</h2>
+    <img src="pictures/davayponovoy.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Начал копаться</h2>
+    <img src="pictures/complicated.jpeg" class="cover h bordered">
+  </section>
+
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Что такое полевой интерфейс?</h2>
+</section>
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Где живут такие интерфейсы?</h2>
+  <ul class="nosign">
+    <li>ТСД со сканером</li>
+    <li class="next">Старые компьютеры на РЦ</li>
+    <li class="next">Планшеты в магазинах</li>
+    <li class="next">Слабая сеть, слабое железо, высокий темп</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Почему обычный веб здесь ломается?</h2>
+  <ul class="nosign">
+    <li>Внимание пользователя ограничено</li>
+    <li class="next">Человек работает в движении</li>
+    <li class="next">Ввод грубее и неоднороднее</li>
+    <li class="next">Состояние процесса важнее красоты экрана</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Полевой интерфейс ломается из-за ложных предположений.</h2>
+</section>
+
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Единый режим ввода</h2>
+  <ul class="nosign">
+    <li>на ТСД критичны скан и аппаратные кнопки;</li>
+    <li class="next">на старом ПК мышь может быть вообще второстепенной</li>
+    <li class="next">на планшете важны крупные зоны нажатия и одноручная работа</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>А как делать?</h2>
+  <ul class="nosign">
+    <li>ТСД - это scan-first</li>
+    <li class="next">Старый компьютер - это keyboard-first</li>
+    <li class="next">Планшет - это touch-first</li>
+    <li class="next">Одинаковый UI везде - неудобный UI везде</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Маленькие кнопки эстетичны</h2>
+  <ul class="nosign">
+    <li class="next">Сначала промах</li>
+    <li class="next">Потом повторный тап</li>
+    <li class="next">Потом недоверие к интерфейсу</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Минимум 24x24 px для pointer targets</h2>
+</section>
+
+  <section id="" class="slide label-header rbn bgi">
+    <img src="pictures/stories.jpeg" class="cover h bordered">
+  </section>
+
+  <section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Как ещё случается? Берём сущность из бэкенда и делаем из неё экран</h2>
+</section>
+
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Экран вокруг сущности</h2>
+  <ul class="nosign">
+    <li>Поставка, карточка, акт, партия</li>
+    <li class="next">Но человеку нужен не объект</li>
+    <li class="next">Ему нужен следующий рабочий шаг</li>
+    <li class="next">Интерфейс должен вести сотрудника по микро-действиям</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Когнитивную нагрузку форм снижаем структурой, прозрачностью и локальной ОС</h2>
+</section>
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Спрятанное состояние процесса</h2>
+  <ul class="nosign">
+    <li>Цвета, циферки во вкладке, исчезающие кнопки</li>
+    <li class="next">Нужна явная модель состояния</li>
+    <li class="next">Хороший UI - проекция машины состояний</li>
+  </ul>
+</section>
+<section id="" class="slide label-header rbn bgi">
+  <h2>Пользователь не понимает, где он сейчас</h2>
+  <video src="pictures/travolta.mp4" autoplay="" loop="" muted="" playsinline="" class="cover w bordered"></video>
+</section>
+<section class="slide label-header rbn bgt" id="">
+<h2 class="shout shrink">ожидание скана -> код получен -> товар распознан -> найдено расхождение -> нужны подтверждающие данные -> операция сохранена локально </h2>
+</section>
+<!-- <section class="slide label-header rbn bg bgl" id="">
+  <h2>Антипаттерн 5. Сервер знает правду прямо сейчас</h2>
+  <ul class="nosign">
+    <li>Синхронный запрос как единственный сценарий</li>
+    <li class="next">Блокировка работы из-за сети</li>
+    <li class="next">Нет локальной очереди изменений</li>
+    <li class="next">Нет понятного статуса синхронизации</li>
+  </ul>
+</section> -->
+
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Повтор действия опасен</h2>
+  <ul class="nosign">
+    <li>Двойной тап</li>
+    <li class="next">Retry после обрыва сети</li>
+    <li class="next">Если это создаёт дубль, то проблема системная</li>
+  </ul>
+</section>
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Тяжелый фронтенд на слабом железе</h2>
+</section>
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Лишние подтверждения и модалки</h2>
+</section>
+
+<!-- <section class="slide label-header rbn bg bgl" id="">
+  <h2>Антипаттерн 8. Тяжёлый фронтенд на слабом железе</h2>
+  <ul class="nosign">
+    <li>Длинные main-thread задачи</li>
+    <li class="next">Запоздалый отклик на скан и тап</li>
+    <li class="next">Дёрганый layout</li>
+    <li class="next">Интерфейс сам провоцирует повторы</li>
+  </ul>
+</section> -->
+
+<!-- <section class="slide label-header rbn bg bgl" id="">
+  <h2>Антипаттерн 6. Лишние подтверждения</h2>
+  <ul class="nosign">
+    <li>Кажется, что модалка защищает</li>
+    <li class="next">На деле она прерывает поток</li>
+    <li class="next">Безопасность лучше строить иначе</li>
+    <li class="next">Undo, статус, идемпотентность, локальная отмена</li>
+  </ul>
+</section> -->
+
+<!-- <section class="slide label-header rbn bg bgl" id="">
+  <h2>Что делать вместо этого</h2>
+  <ul class="nosign">
+    <li>Проектировать от операции, а не от экрана</li>
+    <li class="next">Явно задавать режим ввода</li>
+    <li class="next">Строить интерфейс поверх state machine</li>
+    <li class="next">Делать offline и retry нормальным сценарием</li>
+    <li class="next">Мерить реальную отзывчивость, а не только загрузку</li>
+  </ul>
+</section> -->
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Полевой интерфейс надо проектировать не от экрана, а от рабочего движения человека</h2>
+</section>
+
+
+  <section id="" class="slide label-header rbn bgi ">
+    <div class="cover-container place c">
+      <video src="pictures/do-it.mp4" autoplay="" loop="" muted="" playsinline="" class="cover place l h"></video>
+      <video src="pictures/do-it.mp4" autoplay="" loop="" muted="" playsinline="" class="cover place h"></video>
+      <video src="pictures/do-it.mp4" autoplay="" loop="" muted="" playsinline="" class="cover place r h"></video>
+    </div>
+  </section>
+
+
+<section id="" class="slide label-header rbn bg bgt">
+  <h2>Спасибо! Ваши вопросы?</h2>
+  <img src="pictures/qrcode-tg.png" class="place l" style="width: 270px; padding-left: 100px;">
+    <img src="pictures/qrvote.png" class="place r" style="width: 270px; padding-right: 100px;">
+    <p class="end-link" style="left: 16%;"><a href="https://t.me/itsmirnov" target="_blank">@itsmirnov</a></p>
+
+    <p class="end-link" style="left: 69%;">Голосовать</p>
+<section>
+
+
+  <div class="progress"></div>
+  <script src="shower/shower.min.js"></script>
+</body>
+
+</html>
