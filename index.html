@@ -3,6 +3,44 @@
 
 <head>
   <title>Антипаттерны фронтенда в полевых интерфейсах</title>
+  <style>.compare-grid {
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:12px;
+}
+.mock {
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:26px;
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+}
+.mock-head {
+  padding:5px 25px;
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.mock.bad .mock-head { background:rgba(255,107,107,.16); color:#ffdede; }
+.mock.good .mock-head { background:rgba(48,209,88,.16); color:#d8ffe3; }
+
+.screen {
+  padding:0 18px 18px;
+  display:grid;
+  gap:12px;
+}
+.row {
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:16px 18px;
+  font-size:24px;
+  line-height:1.2;
+  color: white;
+}
+</style>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" hcontent="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,215 +75,481 @@
     </ul>
   </section>
 
-  <section id="" class="slide label-header rbn bgt">
-    <h2 class="shout shrink">Откуда вообще такая тема возникла?</h2>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Откуда вообще такая тема возникла?</h2>
+    <img src="pictures/question.jpeg" class="cover h bordered">
   </section>
-
-
-<section id="" class="slide label-header rbn bgi">
-    <h2>Когда мы слышим слово фронтенд...</h2>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Когда слышим «фронтенд», представляем</h2>
     <img src="pictures/writing.jpeg" class="cover h bordered">
   </section>
   <section id="" class="slide label-header rbn bgi">
-    <h2>или хотя бы</h2>
+    <h2>Возможно, что-то подобное</h2>
+    <img src="pictures/thai.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Или хотя бы так</h2>
     <img src="pictures/double.jpeg" class="cover h bordered">
   </section>
-
   <section id="" class="slide label-header rbn bgt">
-    <h2 class="shout shrink">Управляю разработкой в департаменте Качества</h2>
+    <h2 class="shout shrink">Управляю разработкой<br>в функции Качества товара</h2>
   </section>
-
   <section id="" class="slide label-header rbn bgi">
+    <img src="pictures/bananameme.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>История</h2>
     <img src="pictures/stories.jpeg" class="cover h bordered">
   </section>
-
-  <section id="" class="slide label-header rbn bgt">
-    <h2 class="shout shrink">Однажды приехал в распределительный центр...</h2>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Приехал в распределительный центр</h2>
+    <img src="pictures/magnit-centre.jpg" class="cover w bordered">
   </section>
-
   <section id="" class="slide label-header rbn bgt">
-    <h2 class="shout shrink">и увидел, кто и как взаимодействует с нашими интерфейсами</h2>
+    <h2 class="shout shrink">Посмотрел, кто и как работает<br>с нашими интерфейсами</h2>
   </section>
-
-<section id="" class="slide label-header rbn bgi">
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Не супер удобно</h2>
+    <img src="pictures/manager.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
     <h2>Получил задачу всё переделать</h2>
-    <img src="pictures/davayponovoy.jpeg" class="cover h bordered">
+    <img src="pictures/restart.jpeg" class="cover h bordered">
   </section>
   <section id="" class="slide label-header rbn bgi">
     <h2>Начал копаться</h2>
-    <img src="pictures/complicated.jpeg" class="cover h bordered">
+    <img src="pictures/research.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Почему это может быть полезно вам?</h2>
+    <img src="pictures/cat-question.jpg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Лакмусовая бумага вашего интерфейса</h2>
+    <img src="pictures/lakmus.jpeg" class="cover w bordered">
+  </section>
+  <section class="slide label-header rbn bg bgl" id="">
+  <h2>Более взрослый способ<br>смотреть на фронтенд:</h2>
+  <ul class="nosign">
+    <li>📺 Не как на набор экранов</li>
+    <li class="next">👆 Как на часть пользовательского взаимодействия</li>
+  </ul>
+  <img src="pictures/thinking.png" style="width: 25%; transform: scaleX(-1);" class="place b r">
+  </section>
+<section id="" class="slide label-header rbn bgi">
+    <h2>Что такое полевой интерфейс?</h2>
+    <img src="pictures/pole.jpg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">Не пользователь за компьютером, а часть физической операции</h2>
+  </section>
+<section id="" class="slide label-header rbn bgi">
+    <h2>Знакомьтесь, терминал сбора данных</h2>
+    <img src="pictures/tsd.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">Внимание делится между экраном, товаром, штрихкодом и&nbsp;физическим движением</h2>
+  </section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Где ещё живут такие интерфейсы?</h2>
+  <ul class="nosign">
+    <li>🖥️ Старые компьютеры в зоне приёмки</li>
+    <li class="next">📋 Планшеты в магазине</li>
+    <li class="next">📶 Слабая сеть, слабое железо, высокий темп</li>
+  </ul>
+</section>
+<section id="" class="slide label-header rbn bgi">
+    <h2 style="position: absolute; top:350px;">Лапищи обычного веба не так мощны</h2>
+    <img src="pictures/kachok.jpeg" class="cover h bordered">
+  </section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Почему всё ломается?</h2>
+  <ul class="nosign">
+    <li>🚨 Внимание пользователя ограничено</li>
+    <li class="next">🏃 Человек работает в движении</li>
+    <li class="next">⌨️ Разные каналы ввода</li>
+    <li class="next">💰 Высокая цена ошибки</li>
+  </ul>
+</section>
+<section id="" class="slide label-header rbn bgi">
+    <h2>Проблема не в красоте страницы</h2>
+    <img src="pictures/ladno.jpeg" class="cover h bordered">
+  </section>
+<section id="" class="slide label-header rbn bgi">
+  <h2>Мешают ложные предположения</h2>
+  <video src="pictures/cusak.mp4" autoplay="" loop="" muted="" playsinline="" class="cover h bordered"></video>
+</section>
+<section id="" class="slide label-header rbn bgi">
+    <h2>Примеры</h2>
+    <img src="pictures/example.jpg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Спокойно смотрит в экран</h2>
+    <img src="pictures/flexible.jpeg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Бегает и пытается уследить сразу за всем</h2>
+    <img src="pictures/chaos.gif" class="cover h bordered">
   </section>
 
-
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Что такое полевой интерфейс?</h2>
-</section>
-
 <section class="slide label-header rbn bg bgl" id="">
-  <h2>Где живут такие интерфейсы?</h2>
+  <h2>Устройство ввода не нейтрально:</h2>
   <ul class="nosign">
-    <li>ТСД со сканером</li>
-    <li class="next">Старые компьютеры на РЦ</li>
-    <li class="next">Планшеты в магазинах</li>
-    <li class="next">Слабая сеть, слабое железо, высокий темп</li>
+    <li>📱 ТСД - scan-first</li>
+    <li class="next">🖥️ Старый компьютер - keyboard-first</li>
+    <li class="next">📋 Планшет - touch-first</li>
+    <li class="next">🧑‍💻 Одинаковый UI везде - неудобный UI везде</li>
   </ul>
 </section>
-
+<section id="" class="slide label-header rbn bgi">
+    <h2>Сервер всегда рядом и знает правду</h2>
+    <img src="pictures/specialist.jpg" class="cover h bordered">
+  </section>
+  <section id="" class="slide label-header rbn bgi">
+    <h2>Сеть умирает, работа должна идти</h2>
+    <img src="pictures/very-bad.jpeg" class="cover h bordered">
+  </section>
+<section id="" class="slide label-header rbn bgt">
+    <h2 class="shout shrink">Из этих ошибок вырастают типовые антипаттерны</h2>
+  </section>
+  <section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Сканер как клавиатура</h2>
+</section>
 <section class="slide label-header rbn bg bgl" id="">
-  <h2>Почему обычный веб здесь ломается?</h2>
+  <h2>Почему эта модель соблазнительна</h2>
   <ul class="nosign">
-    <li>Внимание пользователя ограничено</li>
-    <li class="next">Человек работает в движении</li>
-    <li class="next">Ввод грубее и неоднороднее</li>
-    <li class="next">Состояние процесса важнее красоты экрана</li>
+    <li>сканер выглядит как ввод строки в активное поле</li>
+    <li class="next">достаточно обычного input и обработчика onChange</li>
+    <li class="next">но модель хрупкая, потому что завязана на DOM focus</li>
   </ul>
 </section>
-
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Полевой интерфейс ломается из-за ложных предположений.</h2>
-</section>
-
-
 <section class="slide label-header rbn bg bgl" id="">
-  <h2>Единый режим ввода</h2>
+  <h2>Что ломается</h2>
+  <ul class="nosign">
+    <li>открылась модалка - скан улетел не туда</li>
+    <li class="next">ререндер размонтировал поле - событие потеряно</li>
+    <li class="next">фокус перескочил - сломался контекст операции</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Cкан как текстовое поле</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Фокус в поле «Комментарий»</div><div class="row">Скан кода попал в input</div><div class="row">Контекст операции неясен</div><div class="row">Пользователь не понял, что случилось</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Событие «scan_received»</div><div class="row">Система сама определяет контекст</div><div class="row">Сразу проверка кода и ОС</div><div class="row">Пользователь продолжает операцию</div></div>
+    </div>
+  </div>
+  </section>
+  <section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Один режим ввода для всех устройств</h2>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Проблема не в адаптивности</h2>
+  <ul class="nosign">
+    <li>можно идеально растянуть layout по ширине</li>
+    <li class="next">и всё равно оставить человеку неудобный путь выполнения действия</li>
+    <li class="next">важен не размер экрана, а модель ввода</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Разная модель взаимодействия</h2>
   <ul class="nosign">
     <li>на ТСД критичны скан и аппаратные кнопки;</li>
     <li class="next">на старом ПК мышь может быть вообще второстепенной</li>
     <li class="next">на планшете важны крупные зоны нажатия и одноручная работа</li>
   </ul>
 </section>
-
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Только мышь vs keyboard-first</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Мелкие кликабельные иконки</div><div class="row">Перемещение мышью между полями</div><div class="row">Случайная Tab-цепочка</div><div class="row">Ни одна операция не делается с клавиатуры</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Фокус сразу на главном действии</div><div class="row">Enter - подтвердить</div><div class="row">Esc - отменить</div><div class="row">F2/F4/F8 - быстрые сценарии</div></div>
+    </div>
+  </div>
+  </section>
 <section class="slide label-header rbn bg bgl" id="">
-  <h2>А как делать?</h2>
-  <ul class="nosign">
-    <li>ТСД - это scan-first</li>
-    <li class="next">Старый компьютер - это keyboard-first</li>
-    <li class="next">Планшет - это touch-first</li>
-    <li class="next">Одинаковый UI везде - неудобный UI везде</li>
-  </ul>
-</section>
-
-<section class="slide label-header rbn bg bgl" id="">
-  <h2>Маленькие кнопки эстетичны</h2>
+  <h2>Маленькие кнопки не эстетичны</h2>
   <ul class="nosign">
     <li class="next">Сначала промах</li>
     <li class="next">Потом повторный тап</li>
     <li class="next">Потом недоверие к интерфейсу</li>
   </ul>
 </section>
-
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Минимум 24x24 px для pointer targets</h2>
-</section>
-
   <section id="" class="slide label-header rbn bgi">
     <img src="pictures/stories.jpeg" class="cover h bordered">
   </section>
+  <section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Мелкие действия vs крупные зоны</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Иконки 20x20</div><div class="row">Мелкие чекбоксы</div><div class="row">Случайные промахи</div><div class="row">Высокий риск повторного тапа</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Крупные кнопки</div><div class="row">Явные активные зоны</div><div class="row">Главное действие видно сразу</div><div class="row">Меньше ошибок на ходу</div></div>
+    </div>
+  </div>
+  </section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Экран вокруг сущности, а не вокруг действия</h2>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Как обычно думает система</h2>
+  <ul class="nosign">
+    <li>карточка поставки</li>
+    <li class="next">карточка акта</li>
+    <li class="next">карточка партии</li>
+    <li class="next">карточка дефекта</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Как на самом деле думает человек</h2>
+  <ul class="nosign">
+    <li>это тот товар или нет?</li>
+    <li class="next">количество совпадает?</li>
+    <li class="next">есть дефект или нет?</li>
+    <li class="next">что мне сделать следующим шагом?</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Вокруг сущности vs вокруг действия</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">12 полей и 4 вкладки</div><div class="row">Пользователь ищет нужное действие</div><div class="row">Данные важнее операции</div><div class="row">Следующий шаг неочевиден</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Один товар на экране</div><div class="row">Код, наименование, количество</div><div class="row">Две главные кнопки действия</div><div class="row">Следующий шаг очевиден</div></div>
+    </div>
+  </div>
+  </section>
 
   <section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Как ещё случается? Берём сущность из бэкенда и делаем из неё экран</h2>
+  <h2 class="shout shrink">Спрятанное состояние процесса</h2>
 </section>
-
-
 <section class="slide label-header rbn bg bgl" id="">
-  <h2>Экран вокруг сущности</h2>
+  <h2>Плохой интерфейс говорит намёками</h2>
   <ul class="nosign">
-    <li>Поставка, карточка, акт, партия</li>
-    <li class="next">Но человеку нужен не объект</li>
-    <li class="next">Ему нужен следующий рабочий шаг</li>
-    <li class="next">Интерфейс должен вести сотрудника по микро-действиям</li>
+    <li>зелёная точка без расшифровки</li>
+    <li class="next">кнопка пропала, но непонятно почему</li>
+    <li class="next">всплывашка проскочила и исчезла</li>
+    <li class="next">пользователь не понимает, что уже произошло</li>
   </ul>
 </section>
 
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Когнитивную нагрузку форм снижаем структурой, прозрачностью и локальной ОС</h2>
-</section>
-
-<section class="slide label-header rbn bg bgl" id="">
-  <h2>Спрятанное состояние процесса</h2>
-  <ul class="nosign">
-    <li>Цвета, циферки во вкладке, исчезающие кнопки</li>
-    <li class="next">Нужна явная модель состояния</li>
-    <li class="next">Хороший UI - проекция машины состояний</li>
-  </ul>
-</section>
 <section id="" class="slide label-header rbn bgi">
   <h2>Пользователь не понимает, где он сейчас</h2>
   <video src="pictures/travolta.mp4" autoplay="" loop="" muted="" playsinline="" class="cover w bordered"></video>
 </section>
-<section class="slide label-header rbn bgt" id="">
-<h2 class="shout shrink">ожидание скана -> код получен -> товар распознан -> найдено расхождение -> нужны подтверждающие данные -> операция сохранена локально </h2>
-</section>
-<!-- <section class="slide label-header rbn bg bgl" id="">
-  <h2>Антипаттерн 5. Сервер знает правду прямо сейчас</h2>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>В хорошем интерфейсе видно три вещи</h2>
   <ul class="nosign">
-    <li>Синхронный запрос как единственный сценарий</li>
-    <li class="next">Блокировка работы из-за сети</li>
-    <li class="next">Нет локальной очереди изменений</li>
-    <li class="next">Нет понятного статуса синхронизации</li>
+    <li>что уже произошло</li>
+    <li class="next">что ещё не произошло</li>
+    <li class="next">что делать дальше</li>
   </ul>
-</section> -->
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Скрытое состояние vs статус процесса</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Список строк без прогресса</div><div class="row">Есть только иконки статуса</div><div class="row">Неясно, что синхронизировано</div><div class="row">Следующий шаг надо угадывать</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Шаг 3 из 5</div><div class="row">Товар проверен</div><div class="row">2 позиции ждут синхронизации</div><div class="row">Следующее действие подсвечено</div></div>
+    </div>
+  </div>
+  </section>
+
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Ошибка в отрыве vs локальная ошибка</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Сверху красный баннер «Ошибка сохранения»</div><div class="row">Непонятно, где ошибка</div><div class="row">Пользователь идёт искать поле</div><div class="row">Процесс замирает</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Ошибка рядом с полем «Количество»</div><div class="row">Есть текст причины</div><div class="row">Поле подсвечено и сфокусировано</div><div class="row">Понятно, как исправить</div></div>
+    </div>
+  </div>
+  <p class="footnote">Локальная ошибка сильнее помогает продолжить действие, чем общий тревожный баннер.</p>
+</section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Антипаттерн 6<br>Сервер – главный источник правды</h2>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Классическая веб-логика</h2>
+  <ul class="nosign">
+    <li>сделали действие</li>
+    <li class="next">отправили запрос</li>
+    <li class="next">получили ответ</li>
+    <li class="next">обновили экран</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Для полевого процесса слишком хрупко</h2>
+  <ul class="nosign">
+    <li>сеть пропала - всё встало</li>
+    <li class="next">подтверждение не дошло - человек не понимает результат</li>
+    <li class="next">повтор запроса может создать дубль</li>
+    <li class="next">работа зависит от идеального канала связи</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Нет сети кошмар vs локальная очередь</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Нажали «Подтвердить»</div><div class="row">Ошибка сети</div><div class="row">Кнопка снова активна</div><div class="row">Пользователь не знает, повторять или ждать</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Действие сохранено локально</div><div class="row">Статус: «ждёт синхронизации»</div><div class="row">Можно продолжать работу</div><div class="row">Система отправит позже сама</div></div>
+    </div>
+  </div>
+  </section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Антипаттерн 7<br>Повтор действия опасен</h2>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Откуда берутся повторы</h2>
+  <ul class="nosign">
+    <li>пользователь тапнул дважды</li>
+    <li class="next">сканер прислал то же событие повторно</li>
+    <li class="next">сеть вернулась, клиент перезапросил действие</li>
+    <li class="next">экран подвис и спровоцировал ещё один клик</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Если дубль ломает процесс,<br>это уже системная проблема</h2>
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Двойной тап vs безопасный повтор</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">Два тапа по «Сохранить»</div><div class="row">Создались два одинаковых дефекта</div><div class="row">Данные надо чистить вручную</div><div class="row">Пользователь больше не доверяет UI</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">У операции есть operationId</div><div class="row">Повторный запрос безопасен</div><div class="row">Сервер отвечает тем же результатом</div><div class="row">UI остаётся предсказуемым</div></div>
+    </div>
+  </div>
+  </section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Антипаттерн 8<br>Тяжёлый фронтенд на слабом железе</h2>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Что видит разработчик на хорошем ноутбуке</h2>
+  <ul class="nosign">
+    <li>страница открывается быстро</li>
+    <li class="next">UI плавный</li>
+    <li class="next">реакция на клик почти мгновенная</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Что происходит на РЦ или в магазине</h2>
+  <ul class="nosign">
+    <li>долгий первый рендер</li>
+    <li class="next">main thread занят тяжёлыми вычислениями</li>
+    <li class="next">экран дёргается, ответ на клик запаздывает</li>
+    <li class="next">человек начинает повторять действия</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Дёрганый экран vs стабильный отклик</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">После скана весь экран перерисовывается</div><div class="row">Скролл прыгает</div><div class="row">Кнопка меняет место</div><div class="row">Пользователь думает, что нажатие не сработало</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Локально меняется только нужный блок</div><div class="row">Скролл сохраняется</div><div class="row">Кнопка остаётся на месте</div><div class="row">Отклик воспринимается как мгновенный</div></div>
+    </div>
+  </div>
+  <p class="footnote">Здесь важна не только производительность как метрика, а ощущение прямого управления.</p>
+</section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Антипаттерн 9<br>Лишние подтверждения и модалки</h2>
+</section>
+<section class="slide label-header rbn bg bgl" id="">
+  <h2>Кажется, что это защита</h2>
+  <ul class="nosign">
+    <li>на каждом шаге можно спросить «вы уверены?»</li>
+    <li class="next">можно закрыть риск ещё одной модалкой</li>
+    <li class="next">можно запретить ошибиться через лишнее подтверждение</li>
+  </ul>
+</section>
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Но в рутинном процессе<br>это чаще трение, чем защита</h2>
+</section>
+<section class="slide label-header rbn bg bgl compare" id="">
+  <h2>Подтверждение vs дешёвая ошибка</h2>
+  <div class="compare-grid">
+    <div class="mock bad">
+      <div class="mock-head">Плохо</div>
+      <div class="screen"><div class="row warn">«Вы уверены?» после каждого шага</div><div class="row">Модалка перекрывает поток работы</div><div class="row">Человек жмёт «Да»</div><div class="row">Трение растёт, защита нет</div></div>
+    </div>
+    <div class="mock good">
+      <div class="mock-head">Лучше</div>
+      <div class="screen"><div class="row ok">Действие выполняется сразу</div><div class="row">Можно быстро отменить</div><div class="row">Ошибка обратима</div><div class="row">Процесс не ломает ритм работы</div></div>
+    </div>
+  </div>
+  </section>
+
+
+
+<section id="" class="slide label-header rbn bgi">
+    <h2>Что объединяет эти кейсы?</h2>
+    <img src="pictures/applepen.png" class="cover h bordered">
+  </section>
+
+<section class="slide label-header rbn bgt" id="">
+  <h2 class="shout shrink">Проектируем от бизнес-процесса, а не от экрана</h2>
+</section>
 
 <section class="slide label-header rbn bg bgl" id="">
-  <h2>Повтор действия опасен</h2>
+  <h2>Практический порядок проектирования:</h2>
   <ul class="nosign">
-    <li>Двойной тап</li>
-    <li class="next">Retry после обрыва сети</li>
-    <li class="next">Если это создаёт дубль, то проблема системная</li>
+    <li>сначала описываем физический шаг работы</li>
+    <li class="next">выбираем главный канал ввода</li>
+    <li class="next">моделируем состояния и переходы</li>
+    <li class="next">решаем сценарии без сети и безопасного повтора</li>
+    <li class="next">и только потом рисуем экран</li>
   </ul>
 </section>
 
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Тяжелый фронтенд на слабом железе</h2>
+
+<section id="" class="slide label-header rbn bgi">
+  <h2>Хороший полевой интерфейс незаметен</h2>
+  <video src="pictures/homer.mp4" autoplay="" loop="" muted="" playsinline="" class="cover h bordered"></video>
 </section>
-
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Лишние подтверждения и модалки</h2>
-</section>
-
-<!-- <section class="slide label-header rbn bg bgl" id="">
-  <h2>Антипаттерн 8. Тяжёлый фронтенд на слабом железе</h2>
-  <ul class="nosign">
-    <li>Длинные main-thread задачи</li>
-    <li class="next">Запоздалый отклик на скан и тап</li>
-    <li class="next">Дёрганый layout</li>
-    <li class="next">Интерфейс сам провоцирует повторы</li>
-  </ul>
-</section> -->
-
-<!-- <section class="slide label-header rbn bg bgl" id="">
-  <h2>Антипаттерн 6. Лишние подтверждения</h2>
-  <ul class="nosign">
-    <li>Кажется, что модалка защищает</li>
-    <li class="next">На деле она прерывает поток</li>
-    <li class="next">Безопасность лучше строить иначе</li>
-    <li class="next">Undo, статус, идемпотентность, локальная отмена</li>
-  </ul>
-</section> -->
-
-<!-- <section class="slide label-header rbn bg bgl" id="">
-  <h2>Что делать вместо этого</h2>
-  <ul class="nosign">
-    <li>Проектировать от операции, а не от экрана</li>
-    <li class="next">Явно задавать режим ввода</li>
-    <li class="next">Строить интерфейс поверх state machine</li>
-    <li class="next">Делать offline и retry нормальным сценарием</li>
-    <li class="next">Мерить реальную отзывчивость, а не только загрузку</li>
-  </ul>
-</section> -->
-
-<section class="slide label-header rbn bgt" id="">
-  <h2 class="shout shrink">Полевой интерфейс надо проектировать не от экрана, а от рабочего движения человека</h2>
-</section>
-
-
-  <section id="" class="slide label-header rbn bgi ">
+<section id="" class="slide label-header rbn bgi">
+    <h2>Не мешает работать, поэтому хорош</h2>
+    <img src="pictures/success.jpeg" class="cover h bordered">
+  </section>
+  <!-- <section id="" class="slide label-header rbn bgi ">
     <div class="cover-container place c">
       <video src="pictures/do-it.mp4" autoplay="" loop="" muted="" playsinline="" class="cover place l h"></video>
       <video src="pictures/do-it.mp4" autoplay="" loop="" muted="" playsinline="" class="cover place h"></video>
       <video src="pictures/do-it.mp4" autoplay="" loop="" muted="" playsinline="" class="cover place r h"></video>
     </div>
-  </section>
+  </section> -->
 
 
 <section id="" class="slide label-header rbn bg bgt">
@@ -253,7 +557,6 @@
   <img src="pictures/qrcode-tg.png" class="place l" style="width: 270px; padding-left: 100px;">
     <img src="pictures/qrvote.png" class="place r" style="width: 270px; padding-right: 100px;">
     <p class="end-link" style="left: 16%;"><a href="https://t.me/itsmirnov" target="_blank">@itsmirnov</a></p>
-
     <p class="end-link" style="left: 69%;">Голосовать</p>
 <section>
 
